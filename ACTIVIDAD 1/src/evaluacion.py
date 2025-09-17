@@ -4,7 +4,7 @@
 def calcular_puntaje(datos_equipo: dict)
     
 #Entrada: diccionario con innovacion,presentacion,errores
-#Salida: puntaje (int)
+#Salida: pun taje (int)
 
 def mejor_equipo_ronda(ronda: dict)
     
