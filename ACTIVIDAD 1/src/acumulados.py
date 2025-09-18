@@ -1,4 +1,7 @@
 #Contiene funciones para inicializar y actualizar los acumulados por equipo.
+print("falopa")
+print("falopa2")
+print("falopa3")
 
 def inicializar_acumulados(equipos: list[str]) #--> dict
 
