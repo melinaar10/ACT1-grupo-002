@@ -8,3 +8,5 @@ def mostrar_tabla(acum: dict, ronda_nro: int, mejor: tuple[str,int]) #--> None
 
 #Imprime la tabla con innovacion, presentacion,errores,mejores y puntos totales.
 #Resalta el mejor equipo de esa ronda
+
+print("Hola Pedro")
