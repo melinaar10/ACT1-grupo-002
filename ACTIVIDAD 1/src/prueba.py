@@ -1,10 +1,4 @@
 import pprint
-from src.evaluacion import mejor_equipo_ronda
-from src.acumulados import inicializar_acumulados, actualizar_acumulados
-from src.resultados import mostrar_tabla
-
-
-#----rondas resultados--------:
 evaluaciones = [
  # Ronda 1
  {
@@ -48,16 +42,41 @@ evaluaciones = [
  }
 ]
 
-# ----FLUJO PRINCIPAL--------:
 
-## Inicializamos acumulados con los equipos de la primera ronda
-acumulados = inicializar_acumulados(list(evaluaciones[0].keys()))
+def resetear_valores():
+    return {"innovacion": 0, "presentacion": 0, "errores": 0, "mejores": 0, "total": 0}
 
-# Procesamos cada ronda
-nro_Ronda=1 
-for ronda in evaluaciones:
-    mejor = mejor_equipo_ronda(ronda)
-    acumulados = actualizar_acumulados(acumulados, ronda, mejor[0])
-    mostrar_tabla(acumulados, nro_Ronda, mejor)
-    nro_Ronda= nro_Ronda + 1
 
+def inicializar_acumulados(evaluaciones):   
+    equipos = evaluaciones[0].keys()
+    acumulados = dict(map(lambda equipo: (equipo, resetear_valores()), equipos))
+    return acumulados
+
+acum = inicializar_acumulados(evaluaciones)
+pprint.pprint(acum)
+
+
+print('-----------------')
+
+print(evaluaciones)
+
+def actualizar_acumulados(acum: dict, ronda: dict, mejor: str) -> dict: 
+    for equipo in ronda:
+        acum[equipo]["innovacion"] += ronda[equipo]["innovacion"]
+        acum[equipo]["presentacion"] += ronda[equipo]["presentacion"]
+        if (equipo == mejor):
+            acum[equipo]["mejores"] += 1
+        acum[equipo]["total"] += (ronda[equipo]["innovacion"]*3 + ronda[equipo]["presentacion"]*1)
+        if ronda[equipo]["errores"]:
+            acum[equipo]["errores"] += 1
+            acum[equipo]["total"] -= 1
+
+actualizar_acumulados(acum,{
+ 'EquipoA': {'innovacion': 2, 'presentacion': 1, 'errores': True},
+ 'EquipoB': {'innovacion': 1, 'presentacion': 0, 'errores': False},
+ 'EquipoC': {'innovacion': 1, 'presentacion': 2, 'errores': True},
+ 'EquipoD': {'innovacion': 0, 'presentacion': 1, 'errores': False},
+ 'EquipoE': {'innovacion': 1, 'presentacion': 1, 'errores': False}
+ }, "EquipoA")
+
+pprint.pprint(acum)

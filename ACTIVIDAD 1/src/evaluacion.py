@@ -1,13 +1,13 @@
 #Contiene funciones para calcular puntajes y determinar el mejor equipo de una ronda.
 
 
-def calcular_puntaje(datos_equipo: dict)
+def calcular_puntaje(datos_equipo: dict):
     puntaje = datos_equipo['innovacion']*3 + datos_equipo['presentacion']*1 + ( -2 if datos_equipo['errores'] else 0)
     return puntaje
 #Entrada: diccionario con innovacion,presentacion,errores
 #Salida: pun taje (int)
 
-def mejor_equipo_ronda(ronda: dict)
+def mejor_equipo_ronda(ronda: dict):
     mejor_nombre = 'a'
     mejor_puntaje = 0
 #inicializamos variables en 0 para despues compararlas
