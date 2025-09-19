@@ -61,15 +61,7 @@ print('-----------------')
 print(evaluaciones)
 
 def actualizar_acumulados(acum: dict, ronda: dict, mejor: str) -> dict: 
-    for equipo in ronda:
-        acum[equipo]["innovacion"] += ronda[equipo]["innovacion"]
-        acum[equipo]["presentacion"] += ronda[equipo]["presentacion"]
-        if (equipo == mejor):
-            acum[equipo]["mejores"] += 1
-        acum[equipo]["total"] += (ronda[equipo]["innovacion"]*3 + ronda[equipo]["presentacion"]*1)
-        if ronda[equipo]["errores"]:
-            acum[equipo]["errores"] += 1
-            acum[equipo]["total"] -= 1
+    print("hola")
 
 actualizar_acumulados(acum,{
  'EquipoA': {'innovacion': 2, 'presentacion': 1, 'errores': True},

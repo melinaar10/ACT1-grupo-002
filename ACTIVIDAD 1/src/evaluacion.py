@@ -1,4 +1,6 @@
-#Contiene funciones para calcular puntajes y determinar el mejor equipo de una ronda.
+"""
+Contiene funciones para calcular puntajes y determinar el mejor equipo de una ronda.
+"""
 
 
 def calcular_puntaje(datos_equipo: dict):
