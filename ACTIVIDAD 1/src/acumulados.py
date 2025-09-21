@@ -18,7 +18,7 @@ def inicializar_acumulados(evaluaciones):
 #En el programa principal se puede probar así:
 #(recordar(import pprint) para imprimir lindo el diccionario)
 #acum = inicializar_acumulados(evaluaciones)
-#pprint.pprint(acum)
+#pprint.porint(acum)
 
 #Suma innovacion,presentacion,errores,totales.
 #Incrementa el contador de mejores equipos si corresponde
@@ -30,7 +30,9 @@ def actualizar_acumulados(acum: dict, ronda: dict, mejor: str) -> dict:
         acum[equipo]["presentacion"] += ronda[equipo]["presentacion"]
         if (equipo == mejor):
             acum[equipo]["mejores"] += 1
+
         acum[equipo]["total"] += (ronda[equipo]["innovacion"]*3 + ronda[equipo]["presentacion"]*1)
+
         if ronda[equipo]["errores"]:
             acum[equipo]["errores"] += 1
             acum[equipo]["total"] -= 1
